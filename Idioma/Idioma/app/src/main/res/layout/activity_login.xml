@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.aluno_gti_ads.idioma.LoginActivity"
+    android:background="@mipmap/loginbackground"
+    >
+
+    <EditText
+        android:id="@+id/edtUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="User"
+        android:textColorHint="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        />
+
+    <EditText
+        android:id="@+id/edtPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/edtUser"
+        android:layout_below="@+id/edtUser"
+        android:layout_marginTop="21dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="Password"
+        android:textColorHint="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        />
+
+    <TextView
+        android:id="@+id/txtTittle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="68dp"
+        android:text="HairApp"
+        android:fontFamily="sans-serif-thin"
+        android:textSize="40dp"
+        android:textColor="#FFFFFFFF"
+        />
+
+    <Button
+        android:id="@+id/btnConfirmaCadastro"
+        android:layout_width="192dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="#00CD00"
+        android:elevation="3dp"
+        android:fontFamily="sans-serif-thin"
+        android:text="@string/btnOk"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnCanceleCadastro"
+        android:layout_width="193dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="#696969"
+        android:elevation="3dp"
+        android:fontFamily="sans-serif-thin"
+        android:text="@string/btnCadastre"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>

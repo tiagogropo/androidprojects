@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HairApp</string>
+    <string name="titulo_idioma">Seleccione el idioma</string>
+    <string name="btnOk">Confirmar</string>
+    <string name="btnCancelar">Salir</string>
+    <string name="btnCadastre">Regístrate</string>
+</resources>

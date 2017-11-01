@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.aluno_gti_ads.idioma.CadastroTarefa"
+android:background="@color/colorPrimary"    >
+
+
+
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        android:paddingTop="10dp"
+        android:textColor="#FFFFFF"
+        android:text="@string/txtTitleCadasTarefa"
+        android:fontFamily="sans-serif-thin"
+
+
+        android:id="@+id/txtTitleTarefa" />
+
+    <Button
+        android:id="@+id/btnLogo"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/circbutton"
+        android:paddingTop="50dp"
+        android:layout_below="@+id/txtTitleTarefa"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/logotask"
+        android:layout_alignBottom="@+id/btnLogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp"
+        android:id="@+id/imgViewLogoTarefa" />
+
+    <EditText
+        android:id="@+id/edtNomeCliente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_below="@+id/btnLogo"
+        android:layout_marginTop="45dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/hintEditCliente"
+        android:textColorHint="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="sans-serif-thin"
+
+        />
+
+    <EditText
+        android:id="@+id/edtTarefaNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_below="@+id/edtNomeCliente"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColorHint="#FFFFFF"
+        android:hint="@string/hintEditTarefa"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="sans-serif-thin"
+ />
+    <TextView
+        android:id="@+id/txtHora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtTarefaNome"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="13:11"
+        android:textSize="30sp"
+        />
+
+    <Button
+        android:id="@+id/btnConfirmaTarefa"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="21dp"
+        android:background="@drawable/circbutton"
+        android:text="@string/btnOk"
+        android:fontFamily="sans-serif-thin"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+
+        android:layout_below="@+id/txtHora"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btnCadTarefaVoltar"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/backbutton"
+        android:layout_margin="5dp"
+ />
+
+
+
+
+</RelativeLayout>

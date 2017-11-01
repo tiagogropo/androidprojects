@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/logohair"
+    tools:context="com.example.aluno_gti_ads.idioma.SelecionaIdiomaActivity">
+
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/titulo_idioma"
+        android:textSize="22sp"
+        android:fontFamily="sans-serif"
+        />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/imgBtnPtBR"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/brasil"
+        app:border_color="#FFFFFF"
+        app:border_width="3dp"
+        android:onClick="setlocalePt"
+        tools:onClick="setlocalePt"
+        android:layout_marginLeft="10dp"
+        />
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/imgBtnEn"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:src="@drawable/usa"
+        app:border_color="#FFFFFF"
+        app:border_width="3dp"
+        android:onClick="setlocaleUs"
+        tools:onClick="setlocaleUs"
+        android:layout_alignTop="@+id/imgBtnPtBR"
+        android:layout_toEndOf="@+id/imgBtnPtBR" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/imgBtnES"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:src="@drawable/espanha"
+        app:border_color="#FFFFFF"
+        app:border_width="3dp"
+        android:onClick="setlocaleEs"
+        tools:onClick="setlocaleEs"
+        android:layout_alignTop="@+id/imgBtnEn"
+        android:layout_toEndOf="@+id/imgBtnEn" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/imgBtnFr"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:src="@drawable/franca"
+        app:border_color="#FFFFFF"
+        app:border_width="3dp"
+        android:onClick="setlocaleFr"
+        tools:onClick="setlocaleFr"
+        android:layout_alignTop="@+id/imgBtnES"
+        android:layout_toEndOf="@+id/imgBtnES" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/imgBtnGer"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:src="@drawable/alemanha"
+        app:border_color="#FFFFFF"
+        app:border_width="3dp"
+        android:onClick="setlocaleGer"
+        tools:onClick="setlocaleGer"
+        android:layout_alignTop="@+id/imgBtnFr"
+        android:layout_toEndOf="@+id/imgBtnFr" />
+
+    <Button
+        android:id="@+id/btnConfirmaIdioma"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="@string/btnOk"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="70dp"
+        android:textSize="16sp"
+        android:background="@drawable/buttonshapeok"
+        android:fontFamily="sans-serif-thin"
+        android:textStyle="bold"
+        />
+    <Button
+        android:id="@+id/btnCancelaIdioma"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="40dp"
+        android:text="@string/btnCancelar"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="70dp"
+        android:textSize="16sp"
+        android:background="@drawable/buttonshapecancel"
+        android:fontFamily="sans-serif-thin"
+        android:textStyle="bold"
+        />
+</RelativeLayout>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.aluno_gti_ads.idioma.CadastroUsuActivity"
+    android:background="@color/colorPrimary"
+    >
+
+    <TextView
+        android:id="@+id/txtCadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="@string/txtTitleCadasUsua"
+        android:fontFamily="sans-serif-thin"
+        android:textSize="30dp"
+        android:textColor="#FFFFFF"
+        />
+
+    <Button
+        android:id="@+id/btnLogo"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/circbutton"
+        android:paddingTop="50dp"
+        android:layout_below="@+id/txtCadastro"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/logotask"
+        android:layout_alignBottom="@+id/btnLogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp"
+        android:id="@+id/imgViewLogoTarefa" />
+
+
+    <EditText
+        android:id="@+id/edtNomeCadUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_below="@+id/btnLogo"
+        android:layout_marginTop="45dp"
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/hintEdtUser"
+        android:textColorHint="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="sans-serif-thin"
+        android:maxLength="20"
+
+        />
+
+    <EditText
+        android:id="@+id/edtSenhaCadUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_below="@+id/edtNomeCadUsuario"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:textColorHint="#FFFFFF"
+        android:hint="@string/hintEdtPassword"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="sans-serif-thin"
+        android:maxLength="10"
+
+        />
+
+
+    <Button
+        android:id="@+id/btnConfirmaLogin"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="26dp"
+        android:background="@drawable/circbutton"
+        android:text="@string/btnOk"
+        android:fontFamily="sans-serif-thin"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/edtSenhaCadUsuario"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btnCadUsuarioVoltar"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/backbutton"
+        android:layout_marginStart="12dp"
+        android:layout_alignTop="@+id/txtCadastro"
+        android:layout_alignParentStart="true" />
+
+
+</RelativeLayout>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/loginbackground"
+    tools:context="com.example.aluno_gti_ads.idioma.LoginActivity">
+
+    <EditText
+        android:id="@+id/edtUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:fontFamily="sans-serif-thin"
+        android:hint="@string/hintEdtUser"
+        android:inputType="textPersonName"
+        android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
+        />
+
+    <EditText
+        android:id="@+id/edtPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/edtUser"
+        android:layout_below="@+id/edtUser"
+        android:layout_marginTop="21dp"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:fontFamily="sans-serif-thin"
+        android:hint="@string/hintEdtPassword"
+        android:inputType="textPassword"
+        android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
+        />
+
+    <TextView
+        android:id="@+id/txtTittle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="68dp"
+        android:fontFamily="sans-serif-thin"
+        android:text="@string/app_name"
+        android:textColor="#FFFFFFFF"
+        android:textSize="40dp"
+
+        />
+
+    <Button
+        android:id="@+id/btnConfirmaLogin"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/circbutton"
+        android:fontFamily="sans-serif-thin"
+        android:text="@string/btnOk"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:layout_below="@+id/edtPassword"
+        android:layout_alignEnd="@+id/edtPassword" />
+
+    <Button
+        android:id="@+id/btnCadastraUsuario"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/circbutton"
+        android:fontFamily="sans-serif-thin"
+        android:text="@string/btnCadastre"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:layout_below="@+id/edtPassword"
+        android:layout_alignStart="@+id/edtPassword" />
+
+
+</RelativeLayout>
