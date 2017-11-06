@@ -32,6 +32,7 @@
     <string name="txtTitleCadasTarefa">Adicionar Tarefa</string>
     <string name="hintEditCliente">Cliente</string>
     <string name="hintEditTarefa">Tarefa</string>
+    <string name="hintEditValor">Valor</string>
 
 
 

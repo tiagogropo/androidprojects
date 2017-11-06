@@ -78,6 +78,24 @@ android:background="@color/colorPrimary"    >
         android:backgroundTint="#FFFFFF"
         android:fontFamily="sans-serif-thin"
  />
+
+    <EditText
+        android:id="@+id/edtTarefaValor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_below="@+id/edtTarefaNome"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColorHint="#FFFFFF"
+        android:hint="@string/hintEditTarefa"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="sans-serif-thin"
+        />
     <TextView
         android:id="@+id/txtHora"
         android:layout_width="wrap_content"
