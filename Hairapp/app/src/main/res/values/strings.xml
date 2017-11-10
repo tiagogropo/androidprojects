@@ -13,7 +13,7 @@
 
 
     <string name="app_name">HairApp</string>
-    <string name="title_activity_main">Menu</string>
+    <string name="title_activity_main">Tarefas</string>
 
     <string name="hintEdtUser">Usuário</string>
     <string name="hintEdtPassword">Senha</string>
@@ -33,6 +33,7 @@
     <string name="hintEditCliente">Cliente</string>
     <string name="hintEditTarefa">Tarefa</string>
     <string name="hintEditValor">Valor</string>
+    <string name="usuarioMenuLabel">Usuário: </string>
 
 
 

@@ -1,6 +1,7 @@
 package com.example.aluno_gti_ads.idioma;
 
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.aluno_gti_ads.idioma.model.Tarefas;
 import com.example.aluno_gti_ads.idioma.model.Usuario;
@@ -13,21 +14,26 @@ public class CadTarefaHelper {
     EditText edtNomeCliente;
     EditText edtNomeTarefa;
     EditText edtValorTarefa;
+    TextView txtHora;
 
 
-    public CadTarefaHelper(CadastroUsuActivity cadUsuarioActivity){
+    public CadTarefaHelper(CadastroTarefa cadTarefa){
 
-        edtNomeCliente = (EditText) cadUsuarioActivity.findViewById(R.id.edtNomeCliente);
-        edtNomeTarefa = (EditText) cadUsuarioActivity.findViewById(R.id.edtTarefaNome);
+        edtNomeCliente = (EditText) cadTarefa.findViewById(R.id.edtNomeCliente);
+        edtNomeTarefa = (EditText) cadTarefa.findViewById(R.id.edtTarefaNome);
+        edtValorTarefa = (EditText) cadTarefa.findViewById(R.id.edtTarefaValor);
+        txtHora = (TextView) cadTarefa.findViewById(R.id.txtHora);
 
 
     }
 
-    public Tarefas cadTarefa(){
+    public Tarefas cadTarefa(long userID){
         Tarefas tarefa = new Tarefas();
         tarefa.setTarefaCliente(edtNomeCliente.getText().toString());
         tarefa.setTarefaNome(edtNomeTarefa.getText().toString());
         tarefa.setValor(Double.parseDouble(edtValorTarefa.getText().toString()));
+        tarefa.setData(txtHora.getText().toString());
+        tarefa.setUsuId((int)userID);
 
 
 

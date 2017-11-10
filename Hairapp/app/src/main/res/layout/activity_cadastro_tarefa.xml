@@ -90,9 +90,9 @@ android:background="@color/colorPrimary"    >
         android:layout_centerVertical="true"
         android:layout_below="@+id/edtTarefaNome"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textColorHint="#FFFFFF"
-        android:hint="@string/hintEditTarefa"
+        android:hint="@string/hintEditValor"
         android:backgroundTint="#FFFFFF"
         android:fontFamily="sans-serif-thin"
         />
@@ -100,10 +100,9 @@ android:background="@color/colorPrimary"    >
         android:id="@+id/txtHora"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edtTarefaNome"
+        android:layout_below="@+id/edtTarefaValor"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:text="13:11"
         android:textSize="30sp"
         />
 

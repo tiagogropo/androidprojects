@@ -23,7 +23,7 @@
     <string name="btnOk">OK</string>
     <string name="btnCancelar">Exit</string>
 
-    <string name="MenuDrawer">Main</string>
+    <string name="MenuDrawer">Tasks</string>
     <string name="MenuDrawerNovaTarefa">New Task</string>
     <string name="MenuDrawerNovoRelat">Reports</string>
     <string name="MenuDrawerSobre">About</string>
@@ -34,5 +34,7 @@
     <string name="txtTitleCadasTarefa">Add new task</string>
     <string name="hintEditCliente">Customer</string>
     <string name="hintEditTarefa">Task</string>
+    <string name="hintEditValor">Price</string>
+    <string name="usuarioMenuLabel">User: </string>
 
 </resources>

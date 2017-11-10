@@ -42,27 +42,36 @@ public class Tarefas {
         this.valor = valor;
     }
 
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
-    }
 
     private String tarefaNome;
     private String tarefaCliente;
     private Double valor;
-    private Date data;
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    private String data;
+
+    public int getUsuId() {
+        return usuId;
+    }
+
+    public void setUsuId(int usuId) {
+        this.usuId = usuId;
+    }
+
+    private int usuId;
 
 
 
     @Override
     public String toString() {
-        return getTarefaNome();
+        return getTarefaCliente() +"  "+getTarefaNome()+"  "+getData();
     }
-
-
-
 
 }

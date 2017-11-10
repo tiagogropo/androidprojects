@@ -25,6 +25,8 @@ public class UsuarioDAO extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String sql = "CREATE TABLE Usuarios (id INTEGER PRIMARY KEY, nomeUsuario TEXT NOT NULL, senhaUsuario TEXT NOT NULL);";
+        String stringTbTarefas = "CREATE TABLE Tarefas (id INTEGER PRIMARY KEY, usuId TEXT NOT NULL, horario TEXT NOT NULL, cliente TEXT NOT NULL, valor FLOAT NOT NULL, nomeTarefa TEXT NOT NULL);";
+        db.execSQL(stringTbTarefas);
         db.execSQL(sql);
 
     }
@@ -37,7 +39,9 @@ public class UsuarioDAO extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void inserir(Usuario usuario) {
+    public long inserir(Usuario usuario) {
+
+        long usuID;
         //Nova instancia do db para poder usar o db.insert que anula o SQL INJECTION
         SQLiteDatabase db = getWritableDatabase();
         //CONTENT VALUES FAZ O TRATAMENTO DOS DADOS ANTES DE INSERIR NA TABELA
@@ -46,7 +50,8 @@ public class UsuarioDAO extends SQLiteOpenHelper {
         dadosUsu.put("senhaUsuario", usuario.getUsuSenha());
 
 
-        db.insert("Usuarios", null, dadosUsu);
+        usuID = db.insert("Usuarios", null, dadosUsu);
+        return usuID;
     }
 
     public List<Usuario> buscaUsuarios() {
