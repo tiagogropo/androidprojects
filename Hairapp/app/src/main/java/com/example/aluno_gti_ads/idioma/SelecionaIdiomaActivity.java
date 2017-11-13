@@ -27,6 +27,7 @@ public class SelecionaIdiomaActivity extends Activity {
 
             Intent languageToLogin = new Intent(SelecionaIdiomaActivity.this, LoginActivity.class);
             startActivity(languageToLogin);
+            finish();
         }
         CircleImageView btnPtbr = (CircleImageView) findViewById(R.id.imgBtnPtBR);
         btnPtbr.setOnClickListener(new View.OnClickListener() {

@@ -14,6 +14,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public String user;
     public String senha;
+    public Long usuID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +30,13 @@ public class LoginActivity extends AppCompatActivity {
 
         user = pref.getString("user", "");
         senha = pref.getString("senha", "");
+        usuID = pref.getLong("usuID", 0);
         if(!user.equals("")){
             Intent loginToMain = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(loginToMain);
             loginToMain.putExtra("putUser", user);
             loginToMain.putExtra("putSenha", senha);
+           loginToMain.putExtra("usuID", usuID);
         }
 
 
@@ -51,17 +54,18 @@ public class LoginActivity extends AppCompatActivity {
                 UsuarioDAO usuDao = new UsuarioDAO(LoginActivity.this);
                 if (usuDao.verificaLogin(edtNomeUsu.getText().toString(), edtSenhaUsu.getText().toString())) {
 
+                   long usuID =  usuDao.getID();
+
 
                     user = edtNomeUsu.getText().toString();
                     senha = edtSenhaUsu.getText().toString();
                     editor.putString("user", user); // Storing string
                     editor.putString("senha", senha); // Storing string
+                    editor.putLong("usuID", usuID); // Storing string
                     editor.commit();
 
                     Intent loginToMain = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(loginToMain);
-                    loginToMain.putExtra("putUser", user);
-                    loginToMain.putExtra("putSenha", senha);
+                    loginToMain.putExtra("usuID", usuID);
                     startActivity(loginToMain);
                     finish();
                 }

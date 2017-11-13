@@ -56,6 +56,7 @@ public class CadastroTarefa extends AppCompatActivity {
 
                 Intent goToMain = new Intent(CadastroTarefa.this, MainActivity.class);
                 startActivity(goToMain);
+                finish();
 
 
 
@@ -65,7 +66,9 @@ public class CadastroTarefa extends AppCompatActivity {
         btnCadTarefaVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBackPressed();
+                Intent goToMain = new Intent(CadastroTarefa.this, MainActivity.class);
+                startActivity(goToMain);
+                finish();
             }
         });
 
@@ -81,5 +84,14 @@ public class CadastroTarefa extends AppCompatActivity {
 
             }
         });
+
+
+    }
+    @Override
+    public void onBackPressed()
+    {
+        Intent goToMain = new Intent(CadastroTarefa.this, MainActivity.class);
+        startActivity(goToMain);
+        finish();
     }
 }

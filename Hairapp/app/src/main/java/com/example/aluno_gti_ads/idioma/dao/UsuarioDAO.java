@@ -17,6 +17,8 @@ import java.util.List;
 
 public class UsuarioDAO extends SQLiteOpenHelper {
 
+    String globalUser;
+
 
     public UsuarioDAO(Context context) {
         super(context, "Hairapp", null, 1);
@@ -83,7 +85,9 @@ public class UsuarioDAO extends SQLiteOpenHelper {
         while (c.moveToNext()) {
             if (c.getString(c.getColumnIndex("nomeUsuario")).toString().equals(user)) {
                 if (c.getString(c.getColumnIndex("senhaUsuario")).toString().equals(pass)) {
+                    globalUser = user;
                     return true;
+
 
                 }
 
@@ -93,4 +97,17 @@ public class UsuarioDAO extends SQLiteOpenHelper {
         }
         return false;
     }
+
+    public long getID() {
+        long id=0;
+        String sql = "SELECT id FROM Usuarios where nomeUsuario ="+"'"+globalUser+"'";
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery(sql, null);
+        while (c.moveToNext()) {
+        id = c.getLong(c.getColumnIndex("id"));
+
+
+    }
+
+    return id;    }
 }

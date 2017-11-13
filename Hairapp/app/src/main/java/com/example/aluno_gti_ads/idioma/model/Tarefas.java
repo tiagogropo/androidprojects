@@ -71,7 +71,7 @@ public class Tarefas {
 
     @Override
     public String toString() {
-        return getTarefaCliente() +"  "+getTarefaNome()+"  "+getData();
+        return getData() +"                "+getTarefaNome()+"\n"+getTarefaCliente();
     }
 
 }

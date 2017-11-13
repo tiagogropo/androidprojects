@@ -1,5 +1,7 @@
 package com.example.aluno_gti_ads.idioma;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -24,13 +26,17 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    long userID;
+    SharedPreferences pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
+        pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
         String user = pref.getString("user", "User");
-        final long userID = pref.getLong("usuID", 0);
+        userID = pref.getLong("usuID", 0);
+
+
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -45,6 +51,7 @@ public class MainActivity extends AppCompatActivity
                 Intent goToTarefas = new Intent(MainActivity.this, CadastroTarefa.class);
                 goToTarefas.putExtra("usuID", userID);
                 startActivity(goToTarefas);
+                finish();
             }
         });
 
@@ -81,7 +88,14 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            final SharedPreferences.Editor editor = pref.edit();
+            editor.putString("user", ""); // Storing string
+            editor.putString("senha", ""); // Storing string
+            editor.putLong("usuID", 0); // Storing string
+            editor.commit();
+            Intent goToLogin = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(goToLogin);
+            finish();
         }
     }
 
@@ -114,13 +128,30 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+
+            Intent goToTarefas = new Intent(MainActivity.this, CadastroTarefa.class);
+            goToTarefas.putExtra("usuID", userID);
+            startActivity(goToTarefas);
         } else if (id == R.id.nav_gallery) {
+
 
         } else if (id == R.id.nav_slideshow) {
 
-        } else if (id == R.id.nav_manage) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            builder.setMessage("APP de gerenciamento de salão de beleza criado por:\n\nAndrew\nEllen\nTiago")
+                    .setTitle("Sobre!?");
+            // Add the buttons
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
 
+                }
+            });
+            AlertDialog dialog = builder.create();
+            dialog.show();
+
+
+        } else if (id == R.id.nav_manage) {
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
