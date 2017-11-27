@@ -39,7 +39,8 @@ public class TimePickerFragment extends DialogFragment implements TimePickerDial
 
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        //Feito com Format devido o horario aparecer 11:01 => 11:1
         TextView tv = (TextView) getActivity().findViewById(R.id.txtHora);
-        tv.setText(hourOfDay + ":" + minute);
+        tv.setText(String.format("%02d:%02d", hourOfDay, minute));
     }
 }

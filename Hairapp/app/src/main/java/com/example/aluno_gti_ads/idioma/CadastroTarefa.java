@@ -35,14 +35,16 @@ public class CadastroTarefa extends AppCompatActivity {
 
         Button btnCadastroTarefa = (Button) findViewById(R.id.btnConfirmaTarefa);
         Button btnCadTarefaVoltar = (Button) findViewById(R.id.btnCadTarefaVoltar);
-        TextView txtHora = (TextView) findViewById(R.id.txtHora);
+        final TextView txtHora = (TextView) findViewById(R.id.txtHora);
 
         final Calendar calendar = Calendar.getInstance();
         // Get the current hour and minute
-        int hour = calendar.get(Calendar.HOUR_OF_DAY);
-        int minute = calendar.get(Calendar.MINUTE);
+        final int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        final int minute = calendar.get(Calendar.MINUTE);
 
-        txtHora.setText(hour+":"+minute);
+
+        //Feito com Format devido o horario aparecer 11:01 => 11:1
+        txtHora.setText(String.format("%02d:%02d", hour, minute));
 
         btnCadastroTarefa.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,12 +83,13 @@ public class CadastroTarefa extends AppCompatActivity {
                 // Show the time picker dialog fragment
                 dFragment.show(getFragmentManager(),"Time Picker");
 
-
             }
+
         });
 
-
     }
+
+
     @Override
     public void onBackPressed()
     {

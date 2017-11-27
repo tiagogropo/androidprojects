@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity
         tarefaDao.close();
 
         ListView listaTarefas = (ListView) findViewById(R.id.lstClientes);
-        ArrayAdapter<Tarefas> adapter = new ArrayAdapter<Tarefas>(this, android.R.layout.simple_list_item_1, tarefas);
+        ArrayAdapter<Tarefas> adapter = new ArrayAdapter<Tarefas>(this,R.layout.mylist,tarefas);
         listaTarefas.setAdapter(adapter);
 
 
