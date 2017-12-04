@@ -27,7 +27,7 @@ public class UsuarioDAO extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String sql = "CREATE TABLE Usuarios (id INTEGER PRIMARY KEY, nomeUsuario TEXT NOT NULL, senhaUsuario TEXT NOT NULL);";
-        String stringTbTarefas = "CREATE TABLE Tarefas (id INTEGER PRIMARY KEY, usuId TEXT NOT NULL, horario TEXT NOT NULL, cliente TEXT NOT NULL, valor FLOAT NOT NULL, nomeTarefa TEXT NOT NULL);";
+        String stringTbTarefas = "CREATE TABLE Tarefas (id INTEGER PRIMARY KEY, usuId TEXT NOT NULL, horario TEXT NOT NULL, data TEXT NOT NULL, cliente TEXT NOT NULL, valor FLOAT NOT NULL, nomeTarefa TEXT NOT NULL);";
         db.execSQL(stringTbTarefas);
         db.execSQL(sql);
 

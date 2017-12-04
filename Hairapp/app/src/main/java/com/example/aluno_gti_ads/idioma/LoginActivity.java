@@ -1,5 +1,7 @@
 package com.example.aluno_gti_ads.idioma;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -31,12 +33,12 @@ public class LoginActivity extends AppCompatActivity {
         user = pref.getString("user", "");
         senha = pref.getString("senha", "");
         usuID = pref.getLong("usuID", 0);
-        if(!user.equals("")){
+        if (!user.equals("")) {
             Intent loginToMain = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(loginToMain);
             loginToMain.putExtra("putUser", user);
             loginToMain.putExtra("putSenha", senha);
-           loginToMain.putExtra("usuID", usuID);
+            loginToMain.putExtra("usuID", usuID);
         }
 
 
@@ -51,23 +53,39 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                UsuarioDAO usuDao = new UsuarioDAO(LoginActivity.this);
-                if (usuDao.verificaLogin(edtNomeUsu.getText().toString(), edtSenhaUsu.getText().toString())) {
+                if (!edtNomeUsu.getText().toString().equals("") || !edtSenhaUsu.getText().toString().equals("")) {
 
-                   long usuID =  usuDao.getID();
+                    UsuarioDAO usuDao = new UsuarioDAO(LoginActivity.this);
+                    if (usuDao.verificaLogin(edtNomeUsu.getText().toString(), edtSenhaUsu.getText().toString())) {
+
+                        long usuID = usuDao.getID();
 
 
-                    user = edtNomeUsu.getText().toString();
-                    senha = edtSenhaUsu.getText().toString();
-                    editor.putString("user", user); // Storing string
-                    editor.putString("senha", senha); // Storing string
-                    editor.putLong("usuID", usuID); // Storing string
-                    editor.commit();
+                        user = edtNomeUsu.getText().toString();
+                        senha = edtSenhaUsu.getText().toString();
+                        editor.putString("user", user); // Storing string
+                        editor.putString("senha", senha); // Storing string
+                        editor.putLong("usuID", usuID); // Storing string
+                        editor.commit();
 
-                    Intent loginToMain = new Intent(LoginActivity.this, MainActivity.class);
-                    loginToMain.putExtra("usuID", usuID);
-                    startActivity(loginToMain);
-                    finish();
+                        Intent loginToMain = new Intent(LoginActivity.this, MainActivity.class);
+                        loginToMain.putExtra("usuID", usuID);
+                        startActivity(loginToMain);
+                        finish();
+                    }
+                } else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                    builder.setMessage("Todos os campos devem ser preenchidos!")
+                            .setTitle("Erro");
+                    // Add the buttons
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+
+                        }
+                    });
+
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
                 }
 
 

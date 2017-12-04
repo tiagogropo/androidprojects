@@ -9,7 +9,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.example.aluno_gti_ads.idioma.model.Tarefas;
 import com.example.aluno_gti_ads.idioma.model.Usuario;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -41,7 +44,8 @@ public class TarefaDAO extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         //CONTENT VALUES FAZ O TRATAMENTO DOS DADOS ANTES DE INSERIR NA TABELA
         ContentValues dadosTarefa = new ContentValues();
-        dadosTarefa.put("horario", tarefa.getData().toString());
+        dadosTarefa.put("horario", tarefa.getHora());
+        dadosTarefa.put("data", tarefa.getData());
         dadosTarefa.put("cliente", tarefa.getTarefaCliente());
         dadosTarefa.put("valor", tarefa.getValor());
         dadosTarefa.put("usuId", tarefa.getUsuId());
@@ -56,14 +60,18 @@ public class TarefaDAO extends SQLiteOpenHelper {
 
     public List<Tarefas> buscaTarefa(long userID) {
 
-        String sql = "SELECT * FROM Tarefas where usuId ="+userID;
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+
+        final String date = df.format(Calendar.getInstance().getTime());
+
+        String sql = "SELECT * FROM Tarefas where usuId = "+userID+" AND data = "+"'"+date+"'";
         SQLiteDatabase db = getReadableDatabase();
         Cursor c = db.rawQuery(sql, null);
         List<Tarefas> tarefas = new ArrayList<Tarefas>();
 
         while (c.moveToNext()) {
             Tarefas tarefa = new Tarefas();
-            tarefa.setData(c.getString(c.getColumnIndex("horario")));
+            tarefa.setHora(c.getString(c.getColumnIndex("horario")));
             tarefa.setTarefaNome(c.getString(c.getColumnIndex("nomeTarefa")));
             tarefa.setTarefaCliente(c.getString(c.getColumnIndex("cliente")));
             tarefa.setValor(c.getDouble(c.getColumnIndex("valor")));

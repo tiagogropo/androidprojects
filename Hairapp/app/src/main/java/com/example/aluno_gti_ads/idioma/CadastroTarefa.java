@@ -1,23 +1,20 @@
 package com.example.aluno_gti_ads.idioma;
 
-import android.app.DatePickerDialog;
+import android.app.AlertDialog;
 import android.app.DialogFragment;
-import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.method.DateTimeKeyListener;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.TextView;
-import android.widget.TimePicker;
 
 import com.example.aluno_gti_ads.idioma.dao.TarefaDAO;
-import com.example.aluno_gti_ads.idioma.dao.UsuarioDAO;
 import com.example.aluno_gti_ads.idioma.model.Tarefas;
-import com.example.aluno_gti_ads.idioma.model.Usuario;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class CadastroTarefa extends AppCompatActivity {
@@ -29,7 +26,7 @@ public class CadastroTarefa extends AppCompatActivity {
         final long userID;
 
         Bundle extras = getIntent().getExtras();
-        userID = extras.getLong("usuID",0);
+        userID = extras.getLong("usuID", 0);
 
         final CadTarefaHelper cadTarefaHelper = new CadTarefaHelper(this);
 
@@ -42,6 +39,10 @@ public class CadastroTarefa extends AppCompatActivity {
         final int hour = calendar.get(Calendar.HOUR_OF_DAY);
         final int minute = calendar.get(Calendar.MINUTE);
 
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+
+        final String date = df.format(Calendar.getInstance().getTime());
+
 
         //Feito com Format devido o horario aparecer 11:01 => 11:1
         txtHora.setText(String.format("%02d:%02d", hour, minute));
@@ -50,18 +51,34 @@ public class CadastroTarefa extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if (cadTarefaHelper.validarCampos()) {
 
-                Tarefas tarefas = cadTarefaHelper.cadTarefa(userID);
-                TarefaDAO tarefaDao = new TarefaDAO(CadastroTarefa.this);
-                tarefaDao.inserir(tarefas);
-                tarefaDao.close();
+                    Tarefas tarefas = cadTarefaHelper.cadTarefa(userID, date);
+                    TarefaDAO tarefaDao = new TarefaDAO(CadastroTarefa.this);
+                    tarefaDao.inserir(tarefas);
+                    tarefaDao.close();
 
-                Intent goToMain = new Intent(CadastroTarefa.this, MainActivity.class);
-                startActivity(goToMain);
-                finish();
+                    Intent goToMain = new Intent(CadastroTarefa.this, MainActivity.class);
+                    startActivity(goToMain);
+                    finish();
 
 
+                } else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(CadastroTarefa.this);
+                    builder.setMessage("Todos os campos devem ser preenchidos!")
+                            .setTitle("Erro");
+                    // Add the buttons
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
 
+                        }
+                    });
+
+// Create the AlertDialog
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+
+                }
             }
         });
 
@@ -81,7 +98,7 @@ public class CadastroTarefa extends AppCompatActivity {
                 DialogFragment dFragment = new TimePickerFragment();
 
                 // Show the time picker dialog fragment
-                dFragment.show(getFragmentManager(),"Time Picker");
+                dFragment.show(getFragmentManager(), "Time Picker");
 
             }
 
@@ -91,8 +108,7 @@ public class CadastroTarefa extends AppCompatActivity {
 
 
     @Override
-    public void onBackPressed()
-    {
+    public void onBackPressed() {
         Intent goToMain = new Intent(CadastroTarefa.this, MainActivity.class);
         startActivity(goToMain);
         finish();

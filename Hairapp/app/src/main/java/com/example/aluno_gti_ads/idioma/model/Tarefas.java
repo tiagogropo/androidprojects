@@ -56,6 +56,7 @@ public class Tarefas {
     }
 
     private String data;
+    private String hora;
 
     public int getUsuId() {
         return usuId;
@@ -71,7 +72,14 @@ public class Tarefas {
 
     @Override
     public String toString() {
-        return getData() +" - "+getTarefaCliente()+"\n"+" "+getTarefaNome();
+        return getHora() +" - "+getTarefaCliente()+"\n"+" "+getTarefaNome();
     }
 
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
 }

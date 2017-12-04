@@ -30,5 +30,17 @@ public class CadUsuarioHelper {
 
     }
 
+    public boolean validarCampos(){
+
+        if(edtCadUsuSenha.getText().toString().equals("") || edtCadUsuNome.getText().toString().equals("")){
+            return false;
+
+        }else{
+            return  true;
+        }
+
+
+    }
+
 
 }

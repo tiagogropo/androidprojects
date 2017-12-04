@@ -27,17 +27,30 @@ public class CadTarefaHelper {
 
     }
 
-    public Tarefas cadTarefa(long userID){
+    public Tarefas cadTarefa(long userID, String data){
         Tarefas tarefa = new Tarefas();
         tarefa.setTarefaCliente(edtNomeCliente.getText().toString());
         tarefa.setTarefaNome(edtNomeTarefa.getText().toString());
         tarefa.setValor(Double.parseDouble(edtValorTarefa.getText().toString()));
-        tarefa.setData(txtHora.getText().toString());
+        tarefa.setHora(txtHora.getText().toString());
+        tarefa.setData(data);
         tarefa.setUsuId((int)userID);
 
 
 
         return tarefa;
+
+    }
+
+    public boolean validarCampos(){
+
+        if(edtNomeCliente.getText().toString().equals("") || edtNomeTarefa.getText().toString().equals("") || edtValorTarefa.getText().toString().equals("") || txtHora.getText().toString().equals("")){
+            return false;
+
+        }else{
+            return  true;
+        }
+
 
     }
 
